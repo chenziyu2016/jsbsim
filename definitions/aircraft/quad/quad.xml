@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+<fdm_config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="QUAD" version="2.0" release="ALPHA"
+	xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+
+	<fileheader>
+		<author>Jakub Hladik</author>
+		<filecreationdate>2017-10-15</filecreationdate>
+		<version>0.1</version>
+		<description>Model of the MicroCART Quadcopter</description>
+	</fileheader>
+
+	<metrics>
+		<wingarea unit="M2">1</wingarea>
+		<wingspan unit="M">1</wingspan>
+		<chord unit="M">1</chord>
+		<htailarea unit="M2">0</htailarea>
+		<htailarm unit="M">0</htailarm>
+		<vtailarea unit="M2">0</vtailarea>
+		<vtailarm unit="M">0</vtailarm>
+		<location name="AERORP" unit="M">
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</location>
+		<location name="EYEPOINT" unit="M">
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</location>
+		<location name="VRP" unit="M">
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</location>
+	</metrics>
+
+	<mass_balance>
+		<ixx unit="KG*M2">0.036</ixx>
+		<iyy unit="KG*M2">0.036</iyy>
+		<izz unit="KG*M2">0.036</izz>
+		<emptywt unit="KG">1.3</emptywt>
+		<location name="CG" unit="IN">
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</location>
+		<pointmass name="payload">
+			<weight unit="KG">0.0</weight>
+			<location unit="IN">
+				<x>0.0</x>
+				<y>0.0</y>
+				<z>0.0</z>
+			</location>
+		</pointmass>
+	</mass_balance>
+
+	<ground_reactions>
+	
+		<contact type="BOGEY" name="top_left_leg">
+			<location unit="M">
+				<x>-0.283</x>
+				<y>0.00</y>
+				<z>-0.07</z>
+			</location>
+			<static_friction>0.90</static_friction>
+			<dynamic_friction>0.80</dynamic_friction>
+			<spring_coeff unit="N/M">800</spring_coeff>
+			<damping_coeff unit="N/M2/SEC2" type="SQUARE">7</damping_coeff>
+			<damping_coeff_rebound unit="N/M2/SEC2" type="SQUARE">300</damping_coeff_rebound>
+		</contact>
+		
+		<contact type="BOGEY" name="top_right_leg">
+			<location unit="M">
+				<x>0.283</x>
+				<y>0.00</y>
+				<z>-0.07</z>
+			</location>
+			<static_friction>0.90</static_friction>
+			<dynamic_friction>0.80</dynamic_friction>
+			<spring_coeff unit="N/M">800</spring_coeff>
+			<damping_coeff unit="N/M2/SEC2" type="SQUARE">7</damping_coeff>
+			<damping_coeff_rebound unit="N/M2/SEC2" type="SQUARE">300</damping_coeff_rebound>
+		</contact>
+		
+		<contact type="BOGEY" name="bottom_right_leg">
+			<location unit="M">
+				<x>0.00</x>
+				<y>0.283</y>
+				<z>-0.07</z>
+			</location>
+			<static_friction>0.90</static_friction>
+			<dynamic_friction>0.80</dynamic_friction>
+			<spring_coeff unit="N/M">800</spring_coeff>
+			<damping_coeff unit="N/M2/SEC2" type="SQUARE">7</damping_coeff>
+			<damping_coeff_rebound unit="N/M2/SEC2" type="SQUARE">300</damping_coeff_rebound>
+		</contact>
+		
+		<contact type="BOGEY" name="bottom_left_leg">
+			<location unit="M">
+				<x>0.00</x>
+				<y>-0.283</y>
+				<z>-0.07</z>
+			</location>
+			<static_friction>0.90</static_friction>
+			<dynamic_friction>0.80</dynamic_friction>
+			<spring_coeff unit="N/M">800</spring_coeff>
+			<damping_coeff unit="N/M2/SEC2" type="SQUARE">7</damping_coeff>
+			<damping_coeff_rebound unit="N/M2/SEC2" type="SQUARE">300</damping_coeff_rebound>
+		</contact>
+		
+	</ground_reactions>
+
+	<external_reactions />
+
+	<propulsion>
+		<!-- top left motor -->
+		<engine file="dji2212-22">
+			<location unit="M">
+				<x>-0.283</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</location>
+			<orient unit="DEG">
+				<pitch>90.00</pitch>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient>
+			<feed>0</feed>
+			<thruster file="prop10x6">
+				<location unit="M">
+					<x>-0.283</x>
+					<y>0.00</y>
+					<z>0.125</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>90.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+				<sense>1</sense>
+				<p_factor>10</p_factor>
+			</thruster>
+		</engine>
+		<!-- bottom left motor -->
+		<engine file="dji2212-22">
+			<location unit="M">
+				<x>0.283</x>
+				<y>0.000</y>
+				<z>0.000</z>
+			</location>
+			<orient unit="DEG">
+				<pitch>90.00</pitch>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient>
+			<feed>0</feed>
+			<thruster file="prop10x6">
+				<location unit="M">
+					<x>0.283</x>
+					<y>0.000</y>
+					<z>0.125</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>90.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+				<sense>1</sense>
+				<p_factor>10</p_factor>
+			</thruster>
+		</engine>
+		<!-- top right motor -->
+		<engine file="dji2212-22">
+			<location unit="M">
+				<x>0.00</x>
+				<y>0.283</y>
+				<z>0.00</z>
+			</location>
+			<orient unit="DEG">
+				<pitch>90.00</pitch>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient>
+			<feed>0</feed>
+			<thruster file="prop10x6">
+				<location unit="M">
+					<x>0.00</x>
+					<y>0.283</y>
+					<z>0.125</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>90.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+				<sense>-1</sense>
+				<p_factor>10</p_factor>
+			</thruster>
+		</engine>
+		<!-- bottom right motor -->
+		<engine file="dji2212-22">
+			<location unit="M">
+				<x>0.000</x>
+				<y>-0.283</y>
+				<z>0.000</z>
+			</location>
+			<orient unit="DEG">
+				<pitch>90.00</pitch>
+				<roll>0.00</roll>
+				<yaw>0.00</yaw>
+			</orient>
+			<feed>0</feed>
+			<thruster file="prop10x6">
+				<location unit="M">
+					<x>0.000</x>
+					<y>-0.283</y>
+					<z>0.125</z>
+				</location>
+				<orient unit="DEG">
+					<pitch>90.00</pitch>
+					<roll>0.00</roll>
+					<yaw>0.00</yaw>
+				</orient>
+				<sense>-1</sense>
+				<p_factor>10</p_factor>
+			</thruster>
+		</engine>
+		<!-- dummy fuel tank to make the simulator happy -->
+		<tank type="FUEL" number="0">
+			<location unit="M">
+				<x>0.00</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</location>
+			<capacity unit="KG">0.00000000001</capacity>
+			<contents unit="KG">0.0</contents>
+		</tank>
+	</propulsion>
+
+	<flight_control name="FGFCS" />
+
+	<aerodynamics>
+		<axis name="DRAG">
+			<function name="aero/coefficient/CD">
+				<description>Drag</description>
+				<product>
+					<property>aero/qbar-psf</property>
+					<property>metrics/Sw-sqft</property>
+					<value>0.0001</value>
+				</product>
+			</function>
+		</axis>
+	</aerodynamics>
+	<output name="quad_out.csv" type="CSV" rate="100">
+		<property>simulation/sim-time-sec</property>
+		<property>position/distance-from-start-lon-mt</property>
+  		<property>position/distance-from-start-lat-mt</property>
+		<property> position/h-agl-ft </property>
+	</output>
+</fdm_config>

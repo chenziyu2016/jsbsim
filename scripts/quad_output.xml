@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+<output name="quad_out.csv" type="CSV" rate="100">
+    
+    <description>
+        This is an output file that can be used to get position data.
+    </description>
+    
+    <property>simulation/sim-time-sec</property>
+    <property>position/distance-from-start-lon-mt</property>
+    <property>position/distance-from-start-lat-mt</property>
+    <property> position/h-agl-ft </property>
+</output>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Initializes the quad to the Coover 3050 lab conditions -->
+<initialize name="quad_lab_init">
+	<ubody unit="FT/SEC">0.0</ubody>
+	<vbody unit="FT/SEC">0.0</vbody>
+	<wbody unit="FT/SEC">0.0</wbody>
+	<latitude unit="DEG">42.028653</latitude>
+	<longitude unit="DEG">-93.651448</longitude>
+	<elevation unit="FT">1012</elevation>
+	<phi unit="DEG">0.0</phi>
+	<theta unit="DEG">0.0</theta>
+	<psi unit="DEG">0.0</psi>
+	<altitude unit="FT">0.25</altitude>
+	<winddir unit="DEG">0.0</winddir>
+	<vwind unit="FT/SEC">0.0</vwind>
+</initialize>
